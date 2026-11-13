@@ -1,0 +1,36 @@
+{
+  "name": "hiring-workflow-platform",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "tsc -p apps/api && vite build --config apps/web/vite.config.js",
+    "start": "node apps/api/dist/apps/api/src/main.js",
+    "dev:api": "tsc -p apps/api --watch",
+    "test": "vitest run",
+    "bench": "node bench/bench.mjs",
+    "seed": "node bench/seed.mjs",
+    "e2e": "npx playwright test"
+  },
+  "dependencies": {
+    "@nestjs/common": "^11.1.0",
+    "@nestjs/core": "^11.1.0",
+    "@nestjs/platform-express": "^11.1.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.53.0",
+    "@types/node": "^26.6.6",
+    "@vitejs/plugin-react": "^4.5.0",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5",
+    "vitest": "^3.2.3"
+  }
+}

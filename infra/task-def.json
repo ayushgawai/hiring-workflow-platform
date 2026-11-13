@@ -1,0 +1,1 @@
+{"family":"hiring-workflow","networkMode":"awsvpc","requiresCompatibilities":["FARGATE"],"cpu":"512","memory":"1024","containerDefinitions":[{"name":"api","image":"<ECR_URI>:latest","portMappings":[{"containerPort":3001}],"logConfiguration":{"logDriver":"awslogs","options":{"awslogs-group":"/ecs/hiring","awslogs-region":"us-east-1","awslogs-stream-prefix":"api"}}}]}

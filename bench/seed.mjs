@@ -1,0 +1,1 @@
+console.log('Seeded demo: req-1 Backend Engineer, stages Applied/Screen/Interview/Onsite/Offer/Hired, candidates c1 Ada, c2 Ben, c3 Cy (in apps/api/src/main.ts Store). Run npm start and GET /api/board/req-1 with header x-role: recruiter');

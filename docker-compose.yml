@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    environment: { POSTGRES_PASSWORD: dev, POSTGRES_DB: hiring }
+    ports: ["5432:5432"]
+    volumes: ["./infra/init.sql:/docker-entrypoint-initdb.d/init.sql"]
+  localstack:
+    image: localstack/localstack:3.0
+    environment: { SERVICES: sqs }
+    ports: ["4566:4566"]
+  api:
+    build: .
+    environment: { DATABASE_URL: postgres://postgres:dev@postgres:5432/hiring, SQS_ENDPOINT: http://localstack:4566, QUEUE_URL: http://localstack:4566/000000000000/jobs }
+    ports: ["3001:3001"]
+    depends_on: [postgres, localstack]
